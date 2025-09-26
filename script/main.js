@@ -270,3 +270,37 @@ const animationTimeline = () => {
         tl.restart();
     });
 }
+
+//
+function renderFooter(targetId = null) {
+  const year = new Date().getFullYear();a
+  const footer = document.createElement("footer");
+  footer.id = "footer";
+
+  // styling
+  footer.style.cssText = `
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    background: transparent;
+    color: #080808ff;
+    font-family: 'Poppins', 'Inter', Arial, sans-serif;
+    letter-spacing: 0.5px;
+  `;
+
+  // isi teks footer
+  footer.innerHTML = `© ${year} for you by <span style="font-weight:600;">yoovai</span>`;
+
+  if (targetId) {
+    const target = document.getElementById(targetId);
+    if (target) target.appendChild(footer);
+    else document.body.appendChild(footer);
+  } else {
+    document.body.appendChild(footer);
+  }
+}
+
+// jalankan otomatis
+document.addEventListener("DOMContentLoaded", () => {
+  renderFooter();
+});
